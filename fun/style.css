@@ -1,0 +1,201 @@
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: #fff;
+	color: #333;
+	font-family: "Open Sans", Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+body {
+	background: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.container {
+	background: rgb(2, 2, 65);
+	display: flex;
+	border-radius: 50%;
+	justify-items: center;
+	align-items: center;
+	height: 400px;
+	width: 400px;
+	position: relative;
+	overflow: hidden;
+	z-index: -2;
+}
+.dot1 {
+	background: white;
+	border-radius: 50%;
+	position: absolute;
+	left: 35%;
+	z-index: 5;
+}
+.dot1:nth-child(1) {
+	height: 120px;
+	width: 120px;
+	animation: scroll 2s ease-in-out linear infinite;
+}
+@keyframes followPath {
+	0% {
+		offset-distance: 0%;
+	}
+	100% {
+		offset-distance: 100%;
+	}
+}
+.dot1:nth-child(2) {
+	height: 80px;
+	width: 80px;
+	left: 40%;
+	animation: followPath 2s linear infinite;
+	offset-path: path("M50 80 C 70 50, 40 20, 75 30 S 60 20, 50 80");
+}
+.dot1:nth-child(3) {
+	height: 80px;
+	width: 80px;
+	left: 50%;
+	top: 47%;
+	animation: followPath 2s linear infinite;
+	offset-path: path("M0 7 C -40 -30, 25 40, 20 40 S 30 -50, 0 7");
+}
+.dot1:nth-child(4) {
+	height: 80px;
+	width: 80px;
+	top: 50%;
+	left: 59%;
+	z-index: 20;
+	animation: followPath 2s linear infinite;
+	offset-path: path(
+		"M-40 -30 C -80 -20, -35 -30, -40 -20 S -50 -20, -40 -30"
+	);
+}
+.dot1:nth-child(5) {
+	height: 10px;
+	width: 10px;
+	animation: followPath 6s linear infinite;
+	offset-path: path("M-70 30 C 150 90, 45 -70, 140 20 S -120 160, -70 30");
+}
+.dot1:nth-child(6) {
+	height: 30px;
+	width: 30px;
+	left: 34%;
+	animation: followPath 5s linear infinite;
+	offset-path: path("M160 30 C -90 100, 35 30, 140 -10 S 50 20, 160 40");
+}
+.dot1:nth-child(7) {
+	height: 10px;
+	width: 10px;
+	left: 60%;
+	animation: followPath 4s linear infinite;
+	offset-path: path("M-10 30 C -90 100, 35 30, -40 150 S -50 20, -10 30");
+}
+.dot1:nth-child(8) {
+	height: 20px;
+	width: 20px;
+	top: 59%;
+	animation: followPath 5s ease-in-out infinite;
+	offset-path: path("M70 0 C -90 100, -30 30, 40 -10 S 30 10, 60 0");
+}
+.card {
+	display: flex;
+	justify-items: center;
+	align-items: center;
+}
+.card::before,
+.card::after {
+	content: "";
+	position: absolute;
+}
+.card::before {
+	background: conic-gradient(
+		rgb(248, 92, 92) 90deg,
+		yellow 90deg,
+		green 90deg,
+		greenyellow 280deg
+	);
+	height: 200%;
+	width: 200%;
+	left: -200px;
+	animation: scroll 2s linear infinite;
+	z-index: 1;
+}
+.card::after {
+	background: repeating-radial-gradient(
+		circle,
+		rgb(0, 50, 0, 0.8),
+		rgb(0, 30, 0, 0.8) 48px,
+		#00ff00 49px,
+		#00ff00 50px
+	);
+	z-index: 3;
+	height: 395px;
+	right: 3px;
+	animation: satter 3s linear infinite;
+	width: 395px;
+	border-radius: 50%;
+	opacity: 0.9;
+}
+@keyframes satter {
+	0% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes scroll {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+.line1 {
+	background: rgb(3, 169, 3);
+	height: 500px;
+	width: 2px;
+	position: absolute;
+	z-index: 4;
+	left: 200px;
+}
+.line2 {
+	background: rgb(3, 169, 3);
+	height: 2px;
+	width: 900px;
+	position: absolute;
+	z-index: 4;
+	right: 0px;
+}
+.justForFun {
+	font-size: 30px;
+	position: absolute;
+	z-index: 4;
+	top: 60px;
+	right: 80px;
+	animation: opacity 2s ease-in-out infinite;
+}
+@keyframes opacity {
+	0%,
+	100% {
+		opacity: 0.1;
+	}
+	50% {
+		opacity: 1;
+	}
+}
